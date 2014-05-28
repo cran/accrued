@@ -23,11 +23,27 @@ summary.accrued = function(object, ...) {
 	## for each lag, and returned.
 	mean.prop   = apply( cbind(x$data, x$final), 2, function(y) mean(y/x$final, na.rm=TRUE) )
 
+
+	## "q1.prop" is created as follows. For each lag, the proportion of counts for reach upload date, 
+	## relative to the final counts, is computed. Then, the 1st quartile over encounter dates is taken, 
+	## for each lag, and returned.
+	q1.prop   = apply( cbind(x$data, x$final), 2, function(y) quantile(y/x$final, probs=0.25,na.rm=TRUE)  )
+
+	## "q2.prop" is created as follows. For each lag, the proportion of counts for reach upload date, 
+	## relative to the final counts, is computed. Then, the 2nd quartile over encounter dates is taken, 
+	## for each lag, and returned.
+	q2.prop   = apply( cbind(x$data, x$final), 2, function(y) quantile(y/x$final, probs=0.5,na.rm=TRUE)  )
+
+	## "q3.prop" is created as follows. For each lag, the proportion of counts for reach upload date, 
+	## relative to the final counts, is computed. Then, the 3rd quartile over encounter dates is taken, 
+	## for each lag, and returned.
+	q3.prop   = apply( cbind(x$data, x$final), 2, function(y) quantile(y/x$final, probs=0.75,na.rm=TRUE)  )
+
 	## "mean.tot" is created as follows. The mean number of counts for any encounter date is computed, for
 	## each lag.
 	mean.tot = apply( cbind(x$data, x$final), 2, mean, na.rm = TRUE )
 	
-	result = data.frame( upload.prop=upload.prop, mean.prop=mean.prop, mean.total=mean.tot)
+	result = data.frame( upload.prop=upload.prop, mean.prop=mean.prop, mean.total=mean.tot, q1.prop=q1.prop, q2.prop=q2.prop, q3.prop=q3.prop)
 	row.names(result) = c(0:(lags-1), "final")
 	class(result) = 'summary.accrued'
 	result
@@ -62,7 +78,15 @@ print.summary.accrued = function(x, ...) {
 plot.summary.accrued = function(x, ...) {
 	if( class(x) != "summary.accrued" )  stop("ERROR: argument is not an object of the 'summary.accrued' class.")
 	lags = length(x$mean.prop)
-	plot( 0:(lags-2), x$mean.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received', ...)
+	askValue = par()$ask
+	par(ask=TRUE)
+	plot( 0:(lags-2), x$mean.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received', 
+		main="mean proportion of counts received", ...)
+	plot( 0:(lags-2), x$q2.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received',
+		main="1st, 2nd and 3rd quartiles of the proportion of counts received", ...)
+	lines(0:(lags-2), x$q1.prop[-lags], col="forestgreen")
+	lines(0:(lags-2), x$q3.prop[-lags], col="dodgerblue")
+	par(ask = askValue)
 }
 
 

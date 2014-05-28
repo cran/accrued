@@ -23,9 +23,12 @@
 
 \value{
 	\code{summary.accrued} invisibly returns an object of the \code{summary.accrued} class, consisting of a list with the following components:
-	\item{upload_prop}{Vector containing the percentage of days on which an upload was recevied for each lag}
-	\item{mean_prop}{Vector containing the mean proportion of counts received by each lag}
-	\item{mean_total}{Vector containing the mean counts received by each lag}
+	\item{upload.prop}{Vector containing the percentage of days on which an upload was recevied for each lag}
+	\item{mean.prop}{Vector containing the mean proportion of counts received by each lag}
+	\item{mean.total}{Vector containing the mean counts received by each lag}
+	\item{q1.prop}{Vector containing the 1st quartile of the proportion of counts received by each lag}
+	\item{q2.prop}{Vector containing the 2nd quartile of the proportion of counts received by each lag}
+	\item{q3.prop}{Vector containing the 3rd quartile of the proportion of counts received by each lag}
 }
 
 \author{Ian Painter and Julie Eaton}

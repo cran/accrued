@@ -6,7 +6,7 @@
 
 \description{This function creates an upload pattern plot for partially accruing data showing dates at which new data was received for each encounter date.}
 
-\usage{uploadPattern(x, horizontal = TRUE, ...)}
+\usage{uploadPattern(x, horizontal = FALSE, ...)}
 
 \arguments{
 	\item{x}{An object of the \code{accrued} class.}

@@ -1,5 +1,5 @@
 
-summary.accruedErrors = function( object, ...) {
+summary.accruedErrors = function(object, ...) {
 
 	if( class(object) != "accruedErrors")  stop("ERROR: the first argument is not of 'accruedErrors' class.")
 
