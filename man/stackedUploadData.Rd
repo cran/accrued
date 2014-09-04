@@ -14,7 +14,7 @@
 
 \details{This should only be used on accrued data that are counts. No error will be thrown in the case of non-count data, but the results will not make sense.}
 
-\value{A matrix with the columns consisting of event date (encounter date), record date (upload date), accrual lag (lag), counts (time series value), number added.} 
+\value{A data frame with the columns consisting of event date (encounter date), record date (upload date), accrual lag (lag), counts (time series value), number added.} 
 
 \author{Julie Eaton and Ian Painter}
 

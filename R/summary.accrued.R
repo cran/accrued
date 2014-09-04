@@ -43,7 +43,12 @@ summary.accrued = function(object, ...) {
 	## each lag.
 	mean.tot = apply( cbind(x$data, x$final), 2, mean, na.rm = TRUE )
 	
-	result = data.frame( upload.prop=upload.prop, mean.prop=mean.prop, mean.total=mean.tot, q1.prop=q1.prop, q2.prop=q2.prop, q3.prop=q3.prop)
+	result = data.frame( 	upload.prop=upload.prop, 
+							mean.prop=mean.prop, 
+							mean.total=mean.tot, 
+							q1.prop=q1.prop, 
+							q2.prop=q2.prop, 
+							q3.prop=q3.prop    )
 	row.names(result) = c(0:(lags-1), "final")
 	class(result) = 'summary.accrued'
 	result
@@ -59,12 +64,20 @@ print.summary.accrued = function(x, ...) {
 	upload.prop = x$upload.prop
 	mean.prop = x$mean.prop
 	mean.tot = x$mean.tot
+	q1.prop = x$q1.prop
+	q2.prop = x$q2.prop
+	q3.prop = x$q3.prop
 	
 	lags = length(upload.prop)-1
-	out = cbind( format(round(upload.prop,2)), format(round(mean.prop, 2)), format(round(mean.tot,1)) )
-	out = rbind( c("","",""), out )
+	out = cbind( 	format(round(upload.prop, 2)), 
+					format(round(mean.prop, 2)), 
+					format(round(mean.tot, 1)),
+					format(round(q1.prop, 2)), 
+					format(round(q2.prop, 2)), 
+					format(round(q3.prop, 2)) )
+	out = rbind( c("","","", "","",""), out )
 	row.names(out) = c(" Lag", paste(rep('', lags), as.character(0:(lags - 1))), " final")
-	dimnames(out)[[2]] = c( "Upload Percent", "Proportion", "Mean Count")
+	dimnames(out)[[2]] = c( "Upload Percent", "Proportion", "Mean Count", "Quartile 1", "Median", "Quartile 3")
 	
 	cat( paste("\nSummary of accrued data object with", nrow(x$data), "time points.\n\n") )
 	print.default( out, print.gap=2, quote=FALSE )
@@ -81,9 +94,9 @@ plot.summary.accrued = function(x, ...) {
 	askValue = par()$ask
 	par(ask=TRUE)
 	plot( 0:(lags-2), x$mean.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received', 
-		main="mean proportion of counts received", ...)
+		main="mean proportion vs lag", ...)
 	plot( 0:(lags-2), x$q2.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received',
-		main="1st, 2nd and 3rd quartiles of the proportion of counts received", ...)
+		main="1st, 2nd and 3rd quartiles vs lag", ...)
 	lines(0:(lags-2), x$q1.prop[-lags], col="forestgreen")
 	lines(0:(lags-2), x$q3.prop[-lags], col="dodgerblue")
 	par(ask = askValue)

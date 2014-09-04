@@ -9,7 +9,7 @@
 
 \arguments{
   \item{data}{A matrix of time series data, with rows as consecutive encounter dates and columns as lag.}
-  \item{start}{A list consisting of two elements. The first component is boolean according to whether a start date is specified (defaults to \code{FALSE}). The second component is the start date. If none is specified it defaults to 1.}
+  \item{start}{The start date. If none is specified it defaults to 1.}
   \item{final}{Vector of final counts for each encounter date. If omitted, the final column of \code{data} is used for the final counts.}
 }
 
@@ -53,10 +53,7 @@ An object of the \code{accrued} class is a list containing the following compone
 	# Convert to data.accrued object
 	dat <- data.accrued(accruedDataExample)	
 
-	dat$start[[1]]		
-	# This is FALSE because no start date was specified.
-
-	dat$start[[2]]		
+	dat$start
 	# This is 1 because no start date was specified.
 
 	dat					# uses print.accrued
@@ -68,8 +65,6 @@ An object of the \code{accrued} class is a list containing the following compone
 
 	# Convert to data.accrued object, start date now specified.
 	dat <- data.accrued(accruedDataExample, start="2012-09-15")	
-	dat$start[[1]]		# this is TRUE because a start date was specified
-	dat$start[[2]]		# this is the start date
 
 }
 

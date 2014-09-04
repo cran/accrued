@@ -29,20 +29,19 @@ data.accrued <- function( data,
 	##########################################
 	start.r = start
 	end.r = NULL
-	startflag = F
 	if( is.null(start) ) {
 		start.r = 1
 		end.r = nrow(data)
 	} else {
-		startflag = T
 		start.r = as.Date(start)
-		end.r = as.Date( start.r + nrow(data) - 1)
+		end.r = as.Date( start.r + nrow(data) - 1 )
 	}
 
 	times.r = seq( start.r, end.r, by=1 )
 	rownames(data) = as.character( times.r )			
 			
-	result = list( final=final.r, data=data, start=list(startflag, start.r) )	
+	# start.r is either a date or the integer 1.
+	result = list( final=final.r, data=data, start=start.r )	
 	class(result) = 'accrued'
 	result
 }

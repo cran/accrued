@@ -15,7 +15,7 @@
 	\item{\dots}{Parameters to pass to \code{plot}.}
 }
 
-\details{A diagonal upload pattern plot displays for each encounter date (\eqn{x}-axis) whether or not new data was received at each upload date (\eqn{y}-axis). A horizontal upload pattern plot displays for each encounter date (\eqn{x}-axis) whether or not new data was received \eqn{y} days after the encounter date. Note that this function calls the "stackedUploadData" which should only be used on count data.}
+\details{A diagonal upload pattern plot displays for each encounter date (\eqn{x}-axis) whether or not new data was received at each upload date (\eqn{y}-axis). A horizontal upload pattern plot displays for each encounter date (\eqn{x}-axis) whether or not new data were received \eqn{y} days after the encounter date. Note that this function calls the "stackedUploadData" which should only be used on count data. If data were received containing 0 or negative counts, pixels are colored in gray. Otherwise they are dark blue.}
  
 \value{None.}
 

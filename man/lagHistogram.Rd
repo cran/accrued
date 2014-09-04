@@ -7,10 +7,11 @@
 \description{This function creates a column of histograms, the \eqn{i}th histogram showing the distribution of 
 completeness of data \eqn{i-1} days after the encounter date.}
 
-\usage{lagHistogram(x, ...)}
+\usage{lagHistogram(x, maxLagPlot=NULL, ...)}
 
 \arguments{
   \item{x}{Object of the \code{accrued} class containing data to be graphed.}
+  \item{maxLagPlot}{Optional argument specifying the maximum accrual lag reprented in the plot.}
   \item{\dots}{Parameters to pass to \code{plot}.}
 }
 
@@ -28,6 +29,6 @@ completeness of data \eqn{i-1} days after the encounter date.}
 	library(grid) 	
 	data(accruedDataExample)			
 	dat <- data.accrued(accruedDataExample)	
-	lagHistogram(dat)
+	lagHistogram(dat, maxLagPlot=7)
 }
 

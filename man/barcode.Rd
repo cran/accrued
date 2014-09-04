@@ -7,6 +7,7 @@
 \description{
 	Function to create a simple barcode sparkline graph for partially accrued data 
 	showing dates on which counts are received.
+	If data were received containing 0 or negative counts, bars are colored in gray. Otherwise they are dark blue.
 }
 
 \usage{ barcode(x, ...) }
@@ -16,7 +17,8 @@
   \item{\dots}{Parameters to pass to \code{plot}.}
 }
 
-\details{A plot is produced showing days on which counts were received. Note that this function calls the \code{stackedUploadData} which should only be used on count data.}
+\details{A plot is produced showing days on which data were received. 
+Note that this function calls the \code{stackedUploadData} which should only be used on count data.}
 
 \value{None.}
 

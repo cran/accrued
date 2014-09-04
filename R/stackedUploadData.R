@@ -88,6 +88,6 @@ stackedUploadData = function(x) {
 	## This assigns the column "NumberAdded" the stacked vector "numberAddedMatrix", which stackes left-column to right-column.
 	STACKED[,"NumberAdded"] = numberAddedMatrix[index]
 
-	STACKED
+	as.data.frame(STACKED)
 
 }

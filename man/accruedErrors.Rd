@@ -11,7 +11,7 @@
 \arguments{
   \item{x}{Object of the \code{accrued} class.}
   \item{y}{Optional second object of the \code{accrued} class.}
-  \item{func}{Error function to calcuate errors. Default behavior depends on whether one or two objects are included in the call.}
+  \item{func}{Error function to calcuate errors. Default behavior depends on whether one or two objects are included in the call. The first argument is the final value of the indicator and the second argument is the lagged value of the indicator.}
 }
 
 \details{
@@ -35,7 +35,7 @@ If both \code{x} and \code{y} are specified, then the error is calculated for th
 	dat <- data.accrued(accruedDataExample)	
 	errors <- accruedErrors(dat)
 	plot(errors)
-	errors <- accruedErrors(dat, func = function(x,y) {sqrt(x) - sqrt(y)} )
+	errors <- accruedErrors(dat, func = function(a,b) {sqrt(a) - sqrt(b)} )
 	plot(errors)
 	
 	data(accruedDataILIExample)	# simulated accrued data - ILI counts

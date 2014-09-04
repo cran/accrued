@@ -14,6 +14,7 @@ accruedErrors = function( x,  y=NULL,  func=NULL ) {
 
 	if( NUMBER_OF_DATA_SETS == 0 ) stop("ERROR: first argument is null.")
 
+	## If two data sets, x is the denominator and y is the numerator for a derived ratio.
 	accrued_data = x
 	accrued_data2 = y
 
@@ -32,22 +33,24 @@ accruedErrors = function( x,  y=NULL,  func=NULL ) {
 			denominator = dat1[["final"]]
 			zero_indices = which( denominator == 0)
 			length(zero_indices)
+			## Don't divide by zero.
 			if( length(zero_indices) > 0 ) {
 				NA_vec = rep(NA, times=length(zero_indices))
 				denominator[zero_indices] = NA_vec
 			}
 			final_ratios = dat2[["final"]]/denominator
 
-			## Then set the lagged ratios.
+			## Next, set the lagged ratios.
 			denom = as.matrix(dat1[["data"]])
 			numer = as.matrix(dat2[["data"]])
-			nr = dim(denom)[[1]]
-			nc = dim(denom)[[2]]
+			NROW = nrow(denom)
+			NCOL = ncol(denom)
 			zero_indices = which(denom == 0 )
+			## Don't divide by zero.
 			NA_vec = rep(NA, times=length(zero_indices))
 			temp_denom = as.vector(denom)
 			temp_denom[zero_indices] = NA_vec
-			denom_new = matrix(temp_denom, nrow=nr, ncol=nc)
+			denom_new = matrix(temp_denom, nrow= NROW, ncol=NCOL)
 			ratios = numer/denom_new
 
 			accrued_ratio = data.accrued(data=ratios, start=NULL, final=final_ratios)
@@ -72,14 +75,15 @@ accruedErrors = function( x,  y=NULL,  func=NULL ) {
 
 		errorFunction = func
 		if( is.null(func) ) {
-			errorFunction = function(x,y) { return(x-y) }
+			errorFunction = function(a,b) { return(a-b) }
 			if( numDat == 2 ) {
-				errorFunction = function(x,y) {
-					if( length(x) != length(y) ) stop("ERROR: in errorFunction--arguments must be of the same length.")
-					errors=rep(NA, times=length(x))
-					product = y*x
+				errorFunction = function(a,b) {
+					if( length(a) != length(b) ) stop("ERROR: in errorFunction--arguments must be of the same length.")
+					errors=rep(NA, times=length(a))
+					product = b*a
+					# Only take the log if the product isn't too close to zero (or negative).
 					indices = which(product > 0.000001 )
-					errors[indices] = log( y[indices]/x[indices])	
+					errors[indices] = log( b[indices]/a[indices])	
 					errors
 				} # END 'errorFunction' definition
 			} # END else if( numDat == 2 )

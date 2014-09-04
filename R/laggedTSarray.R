@@ -92,8 +92,9 @@ laggedTSarray =  function(x, daysOfHistory = NULL, lags = NULL, ...) {
 	Y_FONT_AXIS = 1
 
 	## Reset x-axis labels if start date is provided.
-	if( accrued_data[["start"]][[1]] ){
-			START_DATE 	= accrued_data[["start"]][[2]]
+	START_DATE = accrued_data[["start"]][[1]]
+	if( START_DATE != 1 ){
+			# x-axis labels need to be dates.
 			X_LABELS 	= as.Date(START_DATE + X_TICK_PLACES, origin=as.Date("1970-01-01")) 
 			X_LABEL_ORIENTATION = 2
 	}		
@@ -102,8 +103,10 @@ laggedTSarray =  function(x, daysOfHistory = NULL, lags = NULL, ...) {
 	for( L in LAGS ) {
 		COL_L = paste(L, sep="")
 
-		par(mar=c(5.0,2.5,2,1) )
-	
+		if( accrued_data[["start"]] != 1 ) par(mar=c(5.0,2.5,2,1) )
+		else par(mar=c(2.0,2.5,2,1) )
+		
+
 		## This asks user if (s)he is ready to view the next plot.
 		if( names(dev.cur()) %in% deviceIsInteractive() ) devAskNewPage(ask = TRUE)
 

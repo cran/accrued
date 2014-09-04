@@ -1,10 +1,10 @@
-lagHistogram <- function(x, ...) {
+lagHistogram <- function(x, maxLagPlot=NULL, ...) {
 
 	## Throw an error if the argument is not of the correct class.
 	if( class(x) != "accrued" )  stop("ERROR: argument is not an object of the 'data.accrued' class.")
 
 	accrued_data = x
-
+	
 	data = accrued_data[["data"]]
 	final = accrued_data[["final"]] 
 	MAX_LAGS = ncol(data) - 1
@@ -58,7 +58,8 @@ lagHistogram <- function(x, ...) {
 	## Data structure has been created.
 	## Now set the graphical parameters.
 
-	NDAYS = min(14, MAX_LAGS)
+	NDAYS = min(c(14, MAX_LAGS))
+	if( !is.null(maxLagPlot) )  NDAYS = max(1, maxLagPlot)
 	NROW = dim(HistogramBinData)[[1]]
 	NBINS = NROW-1
 		

@@ -23,7 +23,7 @@
 	\code{\link{data.accrued}}, 
 	\code{\link{summary.accrued}}, 
 	\code{\link{plot.summary.accrued}},
-	Many other plot methods are available for accrued data: 
+	Many other plot methods are available for partially accruing data: 
 	\code{\link{laggedTSarray}},  
 	\code{\link{lagHistogram}}
 }
