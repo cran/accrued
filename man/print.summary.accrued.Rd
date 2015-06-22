@@ -27,9 +27,9 @@
 
 \examples{
 	data(accruedDataExample)
-	dat <- data.accrued(accruedDataExample)
+	testData <- data.accrued(accruedDataExample)
 
-	summ_dat = summary(dat)		# summary.accrued object
+	summ_dat = summary(testData)		# summary.accrued object
 	summ_dat			# prints the object
 }
 

@@ -18,13 +18,13 @@
 \examples{
 	# denominator
 	data(accruedDataExample)
-	dat1 = data.accrued(accruedDataExample)
+	testData = data.accrued(accruedDataExample)
 
 	# numerator
 	data(accruedDataILIExample)
-	dat2 = data.accrued(accruedDataILIExample)
+	testData2 = data.accrued(accruedDataILIExample)
 
-	errors = accruedErrors(dat1, dat2)
+	errors = accruedErrors(testData, testData2)
 	plot(errors)
 	summary(errors)
 }

@@ -31,10 +31,10 @@
 
 \examples{
 	data(accruedDataExample)			
-	dat <- data.accrued(accruedDataExample)	
-	uploadPattern(dat)				# Diagonal plot (default)
+	testData <- data.accrued(accruedDataExample)	
+	uploadPattern(testData)					# Diagonal plot (default)
 	dev.new(height = 1.5, width = 10)		# Horizontal plot - best short and wide
-	uploadPattern(dat, horizontal = TRUE)				
+	uploadPattern(testData, horizontal = TRUE)				
 }
 
 

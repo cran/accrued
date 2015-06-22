@@ -29,8 +29,8 @@
 
 \examples{
 	data(accruedDataExample)			# simulated accrued data
-	dat <- data.accrued(accruedDataExample)	
-	errors <- accruedErrors(dat)
+	testData <- data.accrued(accruedDataExample)	
+	errors <- accruedErrors(testData)
 	summary(errors)
 }
 

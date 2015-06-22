@@ -23,11 +23,14 @@
 
 \author{Ian Painter and Julie Eaton}
 
+
+
+
 \examples{
 	data(accruedDataExample)
-	dat <- data.accrued(accruedDataExample)
-	summ_dat = summary(dat)		# summary.accrued object
-	plot(summ_dat) 				# plot.summary.accrued
+	testData <- data.accrued(accruedDataExample)
+	summ_dat = summary(testData)		# summary.accrued object
+	plot(summ_dat) 						# plot.summary.accrued
 
 }
 

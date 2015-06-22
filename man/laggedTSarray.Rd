@@ -23,8 +23,16 @@
 \author{Julie Eaton and Ian Painter}
 
 \seealso{
-	\code{\link{data.accrued}}, 
+	\code{\link{data.accrued}},
+	\code{\link{stackedUploadData}},
+ 	\code{\link{uploadPattern}}, 
+ 	\code{\link{plot.accrued}}, 
+	\code{\link{plot.summary.accrued}}, 
+	\code{\link{lagHistogram}},
+	\code{\link{asOf}}
 }
+
+
 
 \examples{
 	data(accruedDataExample)			# simulated accrued data

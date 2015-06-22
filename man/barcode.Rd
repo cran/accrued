@@ -31,13 +31,14 @@ Note that this function calls the \code{stackedUploadData} which should only be 
  	\code{\link{uploadPattern}}, 
  	\code{\link{plot.accrued}}, 
 	\code{\link{plot.summary.accrued}}, 
-	\code{\link{lagHistogram}}
+	\code{\link{lagHistogram}},
+	\code{\link{asOf}}
 }
 
 \examples{
 	data(accruedDataExample)	# simulated accrued data
-	dat <- data.accrued(accruedDataExample)	
-	barcode(dat)		
+	testData <- data.accrued(accruedDataExample)	
+	barcode(testData)		
 }
 
 

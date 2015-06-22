@@ -23,8 +23,7 @@ If both \code{x} and \code{y} are specified, then the error is calculated for th
 \author{Julie Eaton and Ian Painter}
 
 \seealso{
-	\code{	
-		\link{data.accrued}}, 
+		\code{\link{data.accrued}}, 
 		\code{\link{plot.accruedErrors}}, 
 		\code{\link{summary.accruedErrors}
 	}
@@ -32,14 +31,14 @@ If both \code{x} and \code{y} are specified, then the error is calculated for th
 
 \examples{
 	data(accruedDataExample)	# simulated accrued data 
-	dat <- data.accrued(accruedDataExample)	
-	errors <- accruedErrors(dat)
+	testData <- data.accrued(accruedDataExample)	
+	errors <- accruedErrors(testData)
 	plot(errors)
-	errors <- accruedErrors(dat, func = function(a,b) {sqrt(a) - sqrt(b)} )
+	errors <- accruedErrors(testData, func = function(a,b) {sqrt(a) - sqrt(b)} )
 	plot(errors)
 	
 	data(accruedDataILIExample)	# simulated accrued data - ILI counts
-	dat2 = data.accrued(accruedDataILIExample)
-	errors <- accruedErrors(dat, dat2)
+	testData2 = data.accrued(accruedDataILIExample)
+	errors <- accruedErrors(testData, testData2)
 	plot(errors)
 }

@@ -25,8 +25,8 @@
 
 \examples{
 	data(accruedDataExample)
-	dat <- data.accrued(accruedDataExample)
+	testData <- data.accrued(accruedDataExample)
 
-	dat					# print.accrued
+	testData					# print.accrued
 }
 

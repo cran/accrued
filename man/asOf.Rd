@@ -22,18 +22,28 @@ For dates prior to the currentDateNum minus the maximal accrual lag, the final v
 
 \author{Julie Eaton and Ian Painter}
 
+\seealso{
+	\code{\link{data.accrued}},
+	\code{\link{stackedUploadData}},
+ 	\code{\link{uploadPattern}}, 
+ 	\code{\link{plot.accrued}}, 
+	\code{\link{plot.summary.accrued}}, 
+	\code{\link{lagHistogram}},
+	\code{\link{barcode}}
+}
+
 
 
 \examples{
 	data(accruedDataExample)	# simulated accrued data
-	dat <- data.accrued(accruedDataExample)	
-	currentData <- asOf(dat)
-	plot(currentData[,1])
-	currentData <- asOf(dat, currentDate=20) # If dates are indexed from 1.
-	plot(currentData[,1])
+	testData <- data.accrued(accruedDataExample)	
+	currentData <- asOf(testData)
+	plot(currentData)
+	currentData <- asOf(testData, currentDate=20) # If dates are indexed from 1.
+	plot(currentData)
 
-	dat <- data.accrued(accruedDataExample, start="2010-04-20")	
-	currentData <- asOf(dat, currentDate="2010-07-12") 
+	testData <- data.accrued(accruedDataExample, start="2010-04-20")	
+	currentData <- asOf(testData, currentDate="2010-07-12") 
 	L = dim(currentData)[1] 
 	yMax = max(currentData[,1], na.rm=TRUE) + 100
 	num_labels = round(L/4,0)
@@ -51,13 +61,13 @@ For dates prior to the currentDateNum minus the maximal accrual lag, the final v
 	library(animation)
 	# Requires a separate application called "ImageMagik"
 
-		NROW = nrow(dat[["data"]])
+		NROW = nrow(testData[["data"]])
 		saveGIF({
 			for( R in 1:NROW ) {
 				plot( 	c(0, NROW+1), 
 						c(0, max(dat[["data"]], na.rm=TRUE)), 
 						type='n', xlab='day', ylab='count' )
-				currentValues = asOf(dat, currentDate=R)	
+				currentValues = asOf(testData, currentDate=R)	
 				points(1:R, currentValues)
 				lines(1:R, currentValues, col='lightblue')
 			}

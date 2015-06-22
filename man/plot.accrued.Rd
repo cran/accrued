@@ -23,9 +23,10 @@
 	\code{\link{data.accrued}}, 
 	\code{\link{summary.accrued}}, 
 	\code{\link{plot.summary.accrued}},
+	\code{\link{asOf}}
 	Many other plot methods are available for partially accruing data: 
 	\code{\link{laggedTSarray}},  
-	\code{\link{lagHistogram}}
+	\code{\link{lagHistogram}},
 }
 
 \examples{

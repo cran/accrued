@@ -35,7 +35,7 @@
 
 \examples{
 	data(accruedDataExample)
-	dat <- data.accrued(accruedDataExample)
-	summ_dat = summary(dat)		# summary.accrued object
+	testData <- data.accrued(accruedDataExample)
+	summ_dat = summary(testData)		# summary.accrued object
 }
 
