@@ -4,7 +4,7 @@
 
 \title{Print function for objects of the \code{accrued} class.}
 
-\description{Functions to print partially accrued data objects of the \code{accrued} class.}
+\description{Prints partially accruing data objects of the \code{accrued} class.}
 
 \usage{
 	\S3method{print}{accrued}(x, ...)

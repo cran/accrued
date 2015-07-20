@@ -4,7 +4,7 @@ data.accrued <- function( data,
 
 	####################################################################################################
 	## If the dimensions are too small, exit.
-	if( dim(data)[[2]] == 0 ) stop("ERROR: in 'data.accrued' data matrix is empty.")
+	if( dim(data)[[2]] == 0 ) stop("ERROR: in 'accrued' data matrix is empty.")
 
 	###############################
 	## INITIALIZING COLUMN NAMES ##

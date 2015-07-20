@@ -4,7 +4,7 @@
 
 \title{Plot function for accrued data.}
 
-\description{Creates a stacklag difference plots of accrued data.}
+\description{Creates a stacklag difference plots of partially accruing data.}
 
 \usage{ \S3method{plot}{accrued}(x, \dots)}
 

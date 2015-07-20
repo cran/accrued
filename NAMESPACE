@@ -1,5 +1,8 @@
 exportPattern("^[[:alpha:]]+")
 import("grid")
+import("graphics")
+import("grDevices")
+import("stats")
 S3method(plot,accrued)
 S3method(plot,accruedErrors)
 S3method(plot,summary.accrued)

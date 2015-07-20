@@ -4,7 +4,7 @@
 
 \title{Plot function for objects of the \code{summary.accrued} class.}
 
-\description{Function to plot summarized partially accrued data objects of the \code{summary.accrued} class.}
+\description{Plots summarized partially accruing data objects of the \code{summary.accrued} class.}
 
 \usage{
 	\S3method{plot}{summary.accrued}(x, \dots)

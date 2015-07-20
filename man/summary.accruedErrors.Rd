@@ -4,7 +4,7 @@
 
 \title{Summarizes accrual errors}
 
-\description{Default function to summarize accrual errors by lag using quantiles.}
+\description{Default function to summarize errors by accrual lag using quantiles.}
 
 \usage{
 	\S3method{summary}{accruedErrors}(object, ...)

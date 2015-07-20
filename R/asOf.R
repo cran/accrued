@@ -1,7 +1,7 @@
 asOf =  function(x, currentDate=NULL) { 
 	
 	## Throw an error if the argument is not of the correct class.
-	if( class(x) != "accrued" )  stop("ERROR: argument is not an object of the 'data.accrued' class.")
+	if( class(x) != "accrued" )  stop("ERROR: argument is not an object of the 'accrued' class.")
 
 	accrued_data = x		
 

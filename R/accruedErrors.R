@@ -1,7 +1,7 @@
 
 accruedErrors = function( x,  y=NULL,  func=NULL ) {
 
-	if( class(x) != "accrued" )  stop("ERROR: first argument is not an object of the 'data.accrued' class.")
+	if( class(x) != "accrued" )  stop("ERROR: first argument is not an object of the 'accrued' class.")
 
 	NUMBER_OF_DATA_SETS = 0
 	if( !is.null(x) ) {

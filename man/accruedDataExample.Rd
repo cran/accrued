@@ -6,7 +6,7 @@
 
 \docType{data}
 
-\description{Simulated dataset of 12 months of counts accrued over 20 days. This data set is a \code{data.frame}. To use the dataset with any of the functions in the package, the user must first convert it to an \code{accrued} object.}
+\description{Simulated dataset of 12 months of counts accrued over 12 days. This data set is a \code{data.frame}. To use the dataset with any of the functions in the package, the user must first convert it to an \code{accrued} object.}
 
 \usage{data(accruedDataExample)}
 

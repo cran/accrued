@@ -4,7 +4,7 @@
 
 \title{Function to plot errors in accrued data}
 
-\description{Plots errors in accrued data, optionally with quantiles of those errors superimposed.}
+\description{Plots errors in partially accruing data, optionally with quantiles of those errors superimposed.}
 
 \usage{
 \S3method{plot}{accruedErrors}(x, withSmoothing = FALSE, quantiles = c(0.1, 0.5, 0.9), 

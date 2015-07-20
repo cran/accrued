@@ -3,9 +3,7 @@
 \alias{asOf}
 
 \title{Function to recover the current data.}
-\description{
-	Function to create a vector of current data as of a specified date.
-}
+\description{Creates a vector of current data as of a specified date.}
 
 \usage{ asOf(x, currentDate) }
 

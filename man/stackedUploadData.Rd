@@ -4,7 +4,7 @@
 
 \title{Subfunction used by the upload pattern and barcode plot functions}
 
-\description{This subfunction organizes the accrued data into a matrix that includes accrual lag as a variable.}
+\description{This subfunction organizes the partially accruing data into a matrix that includes accrual lag as a variable.}
 
 \usage{stackedUploadData(x)}
 

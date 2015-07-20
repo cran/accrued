@@ -4,7 +4,7 @@
 
 \title{Function to calculate error between partially accrued data and final data}
 
-\description{This function returns the error between partially accrued data and the final data by lag.}
+\description{Returns the error between final data values and partially accruing values, by accrual lag.}
 
 \usage{accruedErrors(x, y=NULL, func=NULL)}
 

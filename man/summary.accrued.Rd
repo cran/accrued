@@ -4,7 +4,7 @@
 
 \title{Print and summary functions for objects of the \code{accrued} class.}
 
-\description{Functions to display and summarize (as text or as a plot) partially accrued data objects of the \code{accrued} class.}
+\description{Functions to display and summarize (as text or as a plot) partially accruing data objects of the \code{accrued} class.}
 
 \usage{
 	\S3method{summary}{accrued}(object, \dots)

@@ -4,7 +4,7 @@
 
 \title{Function to create a a summary histogram of completeness for each lag.}
 
-\description{This function creates a column of histograms, the \eqn{i}th histogram showing the distribution of 
+\description{Creates a column of histograms, the \eqn{i}th histogram showing the distribution of 
 completeness of data \eqn{i-1} days after the encounter date.}
 
 \usage{lagHistogram(x, maxLagPlot=NULL, ...)}

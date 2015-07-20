@@ -2,12 +2,12 @@
 
 \alias{barcode}
 
-\title{Function to create a barcode plot of partially accrued data}
+\title{Function to create a barcode plot of partially accruing data}
 
 \description{
-	Function to create a simple barcode sparkline graph for partially accrued data 
-	showing dates on which counts are received.
-	If data were received containing 0 or negative counts, bars are colored in gray. Otherwise they are dark blue.
+	Creates a sparkline graph or "barcode" for partially accruing data 
+	showing dates on which data are received.
+	If data are received containing 0 or negative counts, the bars are gray. Otherwise they are dark blue.
 }
 
 \usage{ barcode(x, ...) }

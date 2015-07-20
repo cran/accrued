@@ -4,7 +4,7 @@
 
 \title{Function to create an upload pattern plot}
 
-\description{This function creates an upload pattern plot for partially accruing data showing dates at which new data was received for each encounter date.}
+\description{Creates an upload pattern plot for partially accruing data showing dates at which new data were received for each encounter date.}
 
 \usage{uploadPattern(x, horizontal = FALSE, ...)}
 

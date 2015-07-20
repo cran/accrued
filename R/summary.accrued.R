@@ -3,7 +3,7 @@
 summary.accrued = function(object, ...) {
 
 	## Throw an error if the argument is not of the correct class.
-	if( class(object) != "accrued" )  stop("ERROR: argument is not an object of the 'data.accrued' class.")
+	if( class(object) != "accrued" )  stop("ERROR: argument is not an object of the 'accrued' class.")
 		
 	x = object
 	lags = ncol(x$data)

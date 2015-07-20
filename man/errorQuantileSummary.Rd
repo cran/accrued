@@ -4,7 +4,7 @@
 
 \title{Summarizes accrual errors}
 
-\description{Function to summarize accrual errors by lag using quantiles where the user can specify quantiles.}
+\description{Summarizes accrual errors by accrual lag using quantiles where the user can specify quantiles.}
 
 \usage{
 	errorQuantileSummary(x, quantiles = c(0.1, 0.5, 0.9), \dots)

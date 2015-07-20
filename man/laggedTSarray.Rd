@@ -2,9 +2,9 @@
 
 \alias{laggedTSarray}
 
-\title{Function to create an array of time series across lags using the running median}
+\title{Function to create an array of time series across accrual lags using the running median}
 
-\description{This function creates an array of time series graphs, one for each lag, and displays a running median and MAD based bounds on each graph.}
+\description{Creates an array of time series graphs--one for each accrual lag--and displays a running median and MAD-based bounds on each graph.}
 
 \usage{laggedTSarray(x, daysOfHistory, lags, ...)}
 
