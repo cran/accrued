@@ -119,7 +119,7 @@ laggedTSarray =  function(x, daysOfHistory = NULL, lags = NULL, ...) {
 		lines(X, RUNNING_MEDIANS[,COL_L]+2*MEDIAN_ABSOLUTE_DEVIATIONS[,COL_L], col="darkgreen", lty=1)
 		abline(a=0, b=0)
 		axis( 1, at=X_TICK_PLACES, labels=X_LABELS, las=X_LABEL_ORIENTATION, font.axis=1, cex=0.8)
-		axis( 2, at=Y_TICK_PLACES, labels=Y_LABELS, font.axis=Y_FONT_AXIS)
+		axis( 2, at=Y_TICK_PLACES, labels=Y_LABELS, font.axis=Y_FONT_AXIS, las=2)
 
 	} # END for( L in LAGS )
 	

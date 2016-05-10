@@ -77,7 +77,7 @@ print.summary.accrued = function(x, ...) {
 					format(round(q3.prop, 2)) )
 	out = rbind( c("","","", "","",""), out )
 	row.names(out) = c(" Lag", paste(rep('', lags), as.character(0:(lags - 1))), " final")
-	dimnames(out)[[2]] = c( "Upload Percent", "Proportion", "Mean Count", "Quartile 1", "Median", "Quartile 3")
+	dimnames(out)[[2]] = c( "Upload Proportion", "Mean Proportion", "Mean Count", "Quartile 1", "Median", "Quartile 3")
 	
 	cat( paste("\nSummary of accrued data object with", nrow(x$data), "time points.\n\n") )
 	print.default( out, print.gap=2, quote=FALSE )
@@ -94,9 +94,13 @@ plot.summary.accrued = function(x, ...) {
 	askValue = par()$ask
 	par(ask=TRUE)
 	plot( 0:(lags-2), x$mean.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received', 
-		main="mean proportion vs lag", ...)
+		main="mean proportion vs lag", axes=F,...)
+	axis(1)
+	axis(2,las=2)
 	plot( 0:(lags-2), x$q2.prop[-lags], ylim=c(0,1), type='l', xlab='lag', ylab='proportion of counts received',
-		main="1st, 2nd and 3rd quartiles vs lag", ...)
+		main="1st, 2nd and 3rd quartiles vs lag", axes=F,...)
+	axis(1)
+	axis(2,las=2)
 	lines(0:(lags-2), x$q1.prop[-lags], col="forestgreen")
 	lines(0:(lags-2), x$q3.prop[-lags], col="dodgerblue")
 	par(ask = askValue)

@@ -25,8 +25,13 @@ plot.accruedErrors = function(  x,
 	plot( c(X_MIN,X_MAX), c(Y_MIN,Y_MAX), 
 		  xlim=c(X_MIN,X_MAX), ylim=c(Y_MIN,Y_MAX), 
 		  xlab="Lag", ylab="Error",
-		  type = 'n',  pch=16, cex=0.3, col="dimgrey",  main="", ... )
+		  type = 'n',  pch=16, cex=0.3, 
+		  col="dimgrey",
+		  axes=F,  
+		  main="", ... )
 	abline( a=0,b=0, lwd=0.5, col="gray" )
+	axis(1)
+	axis(2, las=2)
 	points( jitter(STACKED[,"Lag"]), STACKED[,"Error"] , pch=16, cex= 0.3, col="dimgrey")
 	if (!is.null(quantiles))  
 		for( q in 1:length(quantiles) )  
