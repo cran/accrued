@@ -22,6 +22,7 @@ plot.accruedErrors = function(  x,
 	if( Y_MIN > 0 ) Y_MIN = -0.5
 	X_MIN = 0
 	X_MAX = max( STACKED[,"Lag"], na.rm=T ) 
+	par(mar=c(3.0,3.5,2,1))
 	plot( c(X_MIN,X_MAX), c(Y_MIN,Y_MAX), 
 		  xlim=c(X_MIN,X_MAX), ylim=c(Y_MIN,Y_MAX), 
 		  xlab="Lag", ylab="Error",
@@ -31,7 +32,7 @@ plot.accruedErrors = function(  x,
 		  main="", ... )
 	abline( a=0,b=0, lwd=0.5, col="gray" )
 	axis(1)
-	axis(2, las=2)
+	axis(2, las=0)
 	points( jitter(STACKED[,"Lag"]), STACKED[,"Error"] , pch=16, cex= 0.3, col="dimgrey")
 	if (!is.null(quantiles))  
 		for( q in 1:length(quantiles) )  

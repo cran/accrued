@@ -14,8 +14,8 @@
   \tabular{ll}{
     Package: \tab accrued\cr
     Type: \tab Package\cr
-    Version: \tab 1.4\cr
-    Date: \tab 2016-05-09\cr
+    Version: \tab 1.4.1\cr
+    Date: \tab 2016-06-07\cr
     License: GPL-3\cr
   }
 }

@@ -45,8 +45,12 @@ plot.accrued =  function(x, ...) {
 					   dimnames=list( LAYER_LABELS, COL_LABELS) )	
 	LAYER_INFO = as.data.frame(LAYER_INFO)
  	for( lag in 0:MAX_LAGS ) {
- 		LAYER_INFO[lag+1,"minVal"] = min(STACKED$NumberAdded[STACKED$Lag == lag], na.rm=T)
- 		LAYER_INFO[lag+1,"maxVal"] = max(STACKED$NumberAdded[STACKED$Lag == lag], na.rm=T) 		
+ 		MIN = min(STACKED$NumberAdded[STACKED$Lag == lag], na.rm=T)
+ 		if( MIN == -Inf ) {MIN = 0}
+ 		LAYER_INFO[lag+1,"minVal"] = MIN
+ 		MAX = max(STACKED$NumberAdded[STACKED$Lag == lag], na.rm=T)
+ 		if( MAX == Inf ) {MAX = 1}
+	 	LAYER_INFO[lag+1,"maxVal"] = MAX
  		LAYER_INFO[lag+1,"diff"] = LAYER_INFO[lag+1,"maxVal"]  - LAYER_INFO[lag+1,"minVal"]
  	}
 	temp = LAYER_INFO[ !is.na(LAYER_INFO$diff), "diff"]
@@ -54,9 +58,7 @@ plot.accrued =  function(x, ...) {
 	padding = 5
 	if(length(temp)>0) padding = max(temp)/4  
 
-### STOPPED HERE	
-### STOPPED HERE	
-### STOPPED HERE	
+
 
 	LAYER_INFO[ ,"grayPadding"] = rep(padding/2, times=length(LAYER_LABELS))
 	LAYER_INFO[ ,"whitePadding"] = rep(padding, times=length(LAYER_LABELS))
@@ -115,6 +117,7 @@ plot.accrued =  function(x, ...) {
 	X_MAX = max(X)
 	Y_MIN = min(Y)
 	Y_MAX = max(Y)
+	par(mar=c(3.0,3.5,2,1))
 	plot( X, Y, 
 		  xlim=c(X_MIN,X_MAX), ylim=c(Y_MIN,Y_MAX), 
 	      xlab="", ylab="", 
@@ -135,7 +138,7 @@ plot.accrued =  function(x, ...) {
 	## Y_AXIS_INDEX  		= seq( 0, MAX_LAGS, by=min(4, floor(MAX_LAGS/2)) ) + 1
 	Y_LABEL_TEXT   		= LAYER_LABELS[Y_AXIS_INDEX] 
 	Y_LABEL_HEIGHTS  	= LAYER_INFO[Y_AXIS_INDEX,"absGraphZero"] 
-	axis( 2, at=Y_LABEL_HEIGHTS, labels=Y_LABEL_TEXT, cex.axis=0.8, las=2, font.axis=1 )
+	axis( 2, at=Y_LABEL_HEIGHTS, labels=Y_LABEL_TEXT, cex.axis=0.7, las=2, font.axis=1 )
 
  	### x-axis labels.
  	NUMBER_OF_LABELS = 10

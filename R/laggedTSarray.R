@@ -103,8 +103,8 @@ laggedTSarray =  function(x, daysOfHistory = NULL, lags = NULL, ...) {
 	for( L in LAGS ) {
 		COL_L = paste(L, sep="")
 
-		if( accrued_data[["start"]] != 1 ) par(mar=c(5.0,2.5,2,1) )
-		else par(mar=c(2.0,2.5,2,1) )
+		if( accrued_data[["start"]] != 1 ) par(mar=c(5.0,3.5,2,1) )
+		else par(mar=c(2.0,3.5,2,1) )
 		
 
 		## This asks user if (s)he is ready to view the next plot.
@@ -119,7 +119,7 @@ laggedTSarray =  function(x, daysOfHistory = NULL, lags = NULL, ...) {
 		lines(X, RUNNING_MEDIANS[,COL_L]+2*MEDIAN_ABSOLUTE_DEVIATIONS[,COL_L], col="darkgreen", lty=1)
 		abline(a=0, b=0)
 		axis( 1, at=X_TICK_PLACES, labels=X_LABELS, las=X_LABEL_ORIENTATION, font.axis=1, cex=0.8)
-		axis( 2, at=Y_TICK_PLACES, labels=Y_LABELS, font.axis=Y_FONT_AXIS, las=2)
+		axis( 2, at=Y_TICK_PLACES, labels=Y_LABELS, font.axis=Y_FONT_AXIS, las=0)
 
 	} # END for( L in LAGS )
 	
